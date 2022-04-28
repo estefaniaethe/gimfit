@@ -1,0 +1,409 @@
+/*
+Theme name: GymFitFlexCSS
+Author: Estefania
+Description: theme del Gym
+Version: 1.0
+License: GNU General public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: gym, flexbox, grid
+Text domain: gymfitflexcss
+*/
+
+/* custom properties, para invocar variables */
+
+:root{
+    /** fuentes **/
+    --fuenteTexto: 'Open Sans', sans-serif;
+    --fuentePrincipal: 'Staatliches', cursive;
+    --fuenteSecundaria: 'Lato', sans-serif;
+    /* colores  */
+    --colorPrimario: #ff5b00;
+    --grisOscuro: #2f2e2e;
+    --grisClaro: #ebebed;
+    --blanco: #ffffff;
+    --black: #000000;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* Now 10px = 1rem! */
+  }
+
+body {
+    font-size: 16px; /* px fallback */
+    font-size: 1.6rem; /* default font-size for document */
+    line-height: 2; /* a nice line-height */
+    font-family: var(--fuenteSecundaria);
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /* headings */
+
+h1, h2, h3, h4 {
+    font-family: var(--fuentePrincipal);
+    margin: 1rem 0;
+    line-height: 1.2;
+}
+
+h1 {
+    font: size 6rem;
+}
+
+h2 {
+    font: size 4.8rem;
+}
+
+h3 {
+    font: size 3.6rem;
+}
+
+h4 {
+    font: size 2.4rem;
+}
+
+/* globales */
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.contenedor{
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.site-header {
+    background-color: var(--grisOscuro);
+    padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+.barranavegacion{
+    display: flex;
+    justify-content: space-between;
+}
+} 
+
+.logo {
+    display: flex;
+    justify-content: center;
+}
+
+hr {
+    border: 1px solid var(--grisClaro);
+}
+
+/* utilidades */
+
+.text-center {
+    text-align: center;
+}
+
+.texto-primario {
+    color: var(--colorPrimario);
+}
+
+.seccion {
+    padding: 5rem 0;
+}
+
+/* header */
+/* menu principal */
+
+.menu-principal {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .menu-principal {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+    .menu-principal .menu{
+        display: flex;
+        justify-content: space-around;
+    }
+    .menu-principal li {
+        margin-right: 2rem;
+    } 
+    .menu-principal li:last-of-type{
+        margin-right: 0;
+    } 
+}
+
+.menu-principal a {
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 2.2rem;
+    padding: .5rem 2rem;
+}
+
+@media (min-width: 768px){
+    .menu-principal a {
+        font-size: 2.6rem;
+        position: relative;
+        z-index: 1;
+    }
+    .menu-principal a::before,
+    .menu-principal a::after{
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 50%;
+        background-color: var(--colorPrimario);
+        z-index: -1;
+        transform: scaleX(0);
+        transition: transform .6s;
+    }
+    .menu-principal a::before{
+       top: 0;
+       transform-origin: left;
+    }
+    .menu-principal a::after{
+        top:50%;
+        transform-origin: right;
+    }
+    .menu-principal a:hover::before{
+        transform: scaleX(1);
+    }
+    .menu-principal a:hover::after{
+        transform: scaleX(1);
+    }
+}
+.menu-principal .current_page_item {
+    border-bottom: 3px solid var(--colorPrimario);
+}
+
+/* estilos movil */
+
+.slicknav_menu{
+    background-color: var(--grisOscuro);
+    border: none;
+} 
+
+@media (min-width: 768px){
+    .slicknav_menu{
+        display: none;
+    } 
+}
+
+.slicknav_btn{
+    background-color: var(--colorPrimario);
+}
+
+.slicknav_nav a {
+    font-size: 2.4rem;
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+}
+
+
+.slicknav_nav a:hover {
+background-color: transparent;
+color: var(--colorPrimario);
+}
+
+@media (min-width: 1$) {
+  .slicknav_menu {
+      display: none;
+  }  
+}
+
+/* footer */
+
+.contenido-footer {
+    padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+    .contenido-footer {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.site-footer .menu-principal {
+    display: block;
+    text-align: center;
+}
+
+.site-footer a {
+    color: var(--black);
+    text-align: center;
+    font-size: 1.4rem;
+    padding: 0 1rem;
+}
+
+.site-footer .menu-principal .current_page_item {
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .site-footer .menu-principal .current_page_item {
+        border-bottom: 3px solid var(--colorPrimario);
+    }
+}
+
+.site-footer .menu-principal a::before,
+.site-footer .menu-principal a::after{
+    display: none;
+}
+
+.copyright {
+    font-family: var(--fuentePrincipal);
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .copyright {
+        font-size: 2.4rem;
+        margin: 0;
+    }
+}
+
+
+/* paginas */
+
+.pagina h1 {
+    margin-bottom: 4rem;
+}
+@media (min-width: 768px) {
+    .pagina.con-sidebar {
+        display: flex;
+        justify-content: space-between;
+    }  
+    .con-sidebar .contenido-principal {
+        flex: 0 0 calc(65% - 2rem);
+    }
+    .con-sidebar .sidebar {
+        flex: 0 0 calc(35% - 2rem);
+    }
+}
+
+
+.imagen-destacada {
+    margin-bottom: 3rem;
+}
+
+.no-sidebar{
+    display: flex;
+    justify-content: center;
+}
+
+.no-sidebar{
+    flex: 0 1 800px;
+}
+
+/* gingle class */
+.information-clase {
+    font-weight: 700;
+    font-family: var(--fuenteSecundaria);
+    font-size: 2.2rem;
+    text-align: center;
+}
+
+/* clases */
+.lista-clases {
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@media (min-width: 768px) {
+    .lista-clases{
+        display: flex;
+    }
+}
+
+/* card */
+
+.gradient::after{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+0,000000+5&0+0,0+1,0+1,0+2,0+2,0+3,0+7,0.65+88 */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0) 1%, rgba(0,0,0,0) 2%, rgba(0,0,0,0) 3%, rgba(0,0,0,0) 5%, rgba(0,0,0,0) 7%, rgba(0,0,0,0.65) 88%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0) 2%,rgba(0,0,0,0) 3%,rgba(0,0,0,0) 5%,rgba(0,0,0,0) 7%,rgba(0,0,0,0.65) 88%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  rgba(0,0,0,0) 0%,rgba(0,0,0,0) 1%,rgba(0,0,0,0) 2%,rgba(0,0,0,0) 3%,rgba(0,0,0,0) 5%,rgba(0,0,0,0) 7%,rgba(0,0,0,0.65) 88%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
+
+}
+
+.card {
+    margin-bottom: 4rem;
+}
+
+.card img{
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .card{
+        flex: 0 0 calc(50% - 2rem);
+        position: relative;
+    }
+}
+
+@media (min-width: 768px) {
+    .card .contenido {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        text-align: left;
+        z-index: 2;
+    }
+}
+
+.card .contenido {
+    padding: 3rem;
+}
+
+.card .contenido h3 {
+    line-height: 1;
+    color: var(--colorPrimario);
+}
+
+@media (min-width: 768px) {
+    .card .contenido h3 {
+        line-height: 1;
+        font-size: 4rem;
+        color: white;
+    } 
+}
+
+.card .contenido p {
+    font-weight: 700;
+    font-size: 2rem;
+    margin: 0;
+}
+
+@media (min-width: 768px) {
+    .card .contenido p {
+        color: var(--colorPrimario);
+    }
+}
