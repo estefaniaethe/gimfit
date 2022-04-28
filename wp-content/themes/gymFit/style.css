@@ -110,6 +110,11 @@ hr {
 
 /* utilidades */
 
+.has-large-font-size{
+    text-align: center !important;
+    color: var(--colorPrimario) !important;
+}
+
 .text-center {
     text-align: center;
 }
