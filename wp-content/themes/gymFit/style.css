@@ -380,10 +380,65 @@ color: var(--colorPrimario);
     text-align: center;
 }
 
+/** Clases Sidebar **/
+.clase-sidebar {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--grisClaro);
+}
+.clase-sidebar:last-of-type{
+    border-bottom: none;
+}
+.clase-sidebar .imagen {
+    flex: 0 0 30%;
+}
+.clase-sidebar .imagen img {
+    display: block;
+}
+.clase-sidebar .contenido-clase {
+    flex: 0 0 calc(70% - 2rem);
+}
+.clase-sidebar .contenido-clase h3 {
+    margin: 0;
+    font-size: 2.6rem;
+}
+.clase-sidebar .contenido-clase a {
+    color: var(--colorPrimario);
+}
+.clase-sidebar .contenido-clase p {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
 /* clases */
 .lista-clases {
     margin-top: 4rem;
     
+}
+
+/* sidebar */
+
+.widget {
+    padding: 2rem 0;
+}
+
+.widget:first-of-type {
+    padding-top: 0;
+}
+
+.widget h3 {
+    color: #ff5b00;
+    font-size: 2rem;
+}
+
+.widget a {
+    color: #000000;
+}
+
+.widget a:hover {
+    color: var(--colorPrimario);
 }
 
 @media (min-width: 768px) {
