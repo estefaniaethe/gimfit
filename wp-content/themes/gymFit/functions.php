@@ -6,8 +6,11 @@ require get_template_directory() . '/inc/queries.php';
 // Cuando el tema es activado
 function gymfitness_setup() {
 
-    // Habilitar imagenes destacadas
+    /* Habilitar imagenes destacadas */
     add_theme_support('post-thumbnails');
+
+    /* titulos SEO */
+    add_theme_support('title-tag'); 
 
     // Agregar imagenes de tamaño personalizado
     add_image_size('square', 350, 350, true);
