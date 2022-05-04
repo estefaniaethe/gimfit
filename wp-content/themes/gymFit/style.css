@@ -691,3 +691,69 @@ body.home  .site-header {
 .tagline p {
     font-size: 2.2rem;
 }
+
+/* front-page */
+
+.bienvenido p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 200px;
+}
+
+.clasesA{
+    background-color: rgb(177, 167, 167);
+}
+
+.contenedor-boton {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* boton */
+
+.boton {
+    background-color: var(--blanco);
+    color: var(--black);
+    padding: 1rem 3rem;
+    display: block;
+    flex: 1;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: .5rem;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+        flex: 0 0 auto;
+    }
+}
+
+.boton-primario {
+    background-color: var(--colorPrimario);
+    color: var(--blanco);
+}
+
+.contenedor-areas {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contenedor-areas .area {
+    flex: 0 0 50%;
+    height: 250px;
+}
+
+@media (min-width: 768px) {
+    .contenedor-areas .area {
+        flex: 0 0 25%;
+        height: 300px;
+    }
+}
+
+.contenedor-areas .area img{
+    height: 350px;
+    object-fit: cover;
+}
