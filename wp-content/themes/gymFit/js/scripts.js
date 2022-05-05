@@ -5,6 +5,11 @@ jQuery(document).ready( $ => {
         appendTo: '.site-header'
     });
  
+    $('.listado-testimoniales').bxSlider({
+        auto: true,
+        mode: 'fade',
+        controls: false
+    });
 
     // Mapa de Leaflet
     var map = L.map('mapa').setView([51.505, -0.09], 13);

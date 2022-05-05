@@ -59,4 +59,57 @@
         </div>
     </div>
 </section>
+
+<section class="instructores" >
+    <div class="contenedor seccion">
+        <h2 class="text center texto-primario">Nuestros instructores</h2>
+        <p class="text-center"> Instructores profesionales</P>
+        <ul class="listado-instructores">
+            <?php
+                $args = array(
+                    'post-type' => 'instructores',
+                    'posts_per_page' => 30
+                );
+                $instructores = new WP_Query($args);
+                while( $instructores->have_posts() ): $instructores->the_post(); ?>
+
+            <li class="instructor">
+                <?php the_post_thumbnail('mediano'); ?>
+                <div class="contenido text-center">
+                    <h3><?php the_title(); ?></h3>
+                    <?php the_content(); ?>
+                </div>
+            </li>
+
+            <?php endwhile; wp_reset_postdata(); ?>
+        </ul>
+</section>
+
+<section class="testimoniales">
+    <h2 class="text-center texto-blanco">Testimoniales </h2>
+
+    <div class="contenedor-testimoniales">
+        <ul class="listado-testimoniales"> 
+            <?php
+                $args = array(
+                    'post_type' => 'testimoniales',
+                    'posts_per_page' => 10
+                );
+                $testimoniales = new WP_Query($args);
+                while($testimoniales->have_posts()): $testimoniales->the_post();   
+            ?>
+            <li class="testimonial text-center">
+                <blockquote>
+                    <?php the_content(); ?>
+                </blockquote>
+
+                <footer class="testimonial-footer">
+                    <?php the_post_thumbnail('thumbnail'); ?>
+                    <p><?php the_title(); ?></p>
+                </footer>
+                
+            </li>
+            <?php endwhile; wp_reset_postdata(); ?>  
+        </ul>
+</section>
 <?php get_footer(); ?>

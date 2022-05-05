@@ -87,11 +87,57 @@ img {
     margin: 0 auto;
 }
 
+/* header */
 .site-header {
     background-color: var(--grisOscuro);
     padding: 2rem 0;
 }
 
+/* header */
+body.home  .site-header {
+    padding-top: 2rem;
+    height: auto;
+    min-height: 70rem;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+}
+
+@media (min-width: 768px) {
+    body.home  .site-header {
+        height: 100vh;
+    }
+    .header-grid {
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: (5, 1fr);
+    }
+    .header-grid .barranavegacion {
+        grid-column: 1 / 5;
+    }
+}
+
+.tagline {
+    color: var(--blanco);
+    margin-top: 10rem;
+}
+
+@media (min-width: 1$) {
+    .tagline {
+        grid-row: 3 / 4;
+       grid-column: 2 / 4;
+       margin-top: 0;
+    }
+}
+
+.tagline p {
+    font-size: 2.2rem;
+}
+
+
+/* barra nav */
 @media (min-width: 768px) {
 .barranavegacion{
     display: flex;
@@ -642,7 +688,7 @@ div.wpcf7-mail-sent-ok{
 
 /* mapa */
 
-.mapa {
+#mapa {
     height: 350px;
 }
 
@@ -650,64 +696,82 @@ body.home .slicknav_menu {
     background-color: transparent;
 }
 
-body.home  .site-header {
-    padding-top: 2rem;
-    height: auto;
-    min-height: 70rem;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-
-}
-
-@media (min-width: 768px) {
-    body.home  .site-header {
-        height: 100vh;
-    }
-    .header-grid {
-        height: 100%;
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: (5, 1fr);
-    }
-    .header-grid .barranavegacion {
-        grid-column: 1 / 5;
-    }
-}
-
-.tagline {
-    color: var(--blanco);
-    margin-top: 10rem;
-}
-
-@media (min-width: 1$) {
-    .tagline {
-        grid-row: 3 / 4;
-       grid-column: 2 / 4;
-       margin-top: 0;
-    }
-}
-
-.tagline p {
-    font-size: 2.2rem;
-}
 
 /* front-page */
 
-.bienvenido p {
+/** Front page **/
+.bienvenida p {
     max-width: 800px;
     margin: 0 auto;
-    font-size: 200px;
 }
 
-.clasesA{
-    background-color: rgb(177, 167, 167);
-}
-
-.contenedor-boton {
+.contenedor-areas {
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
 }
+.contenedor-areas .area {
+    flex: 0 0 100%;
+    height: 250px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 480px) {
+    .contenedor-areas .area {
+        flex: 0 0 50%;
+    } 
+}
+
+@media (min-width: 768px) {
+    .contenedor-areas .area {
+        flex: 0 0 25%;
+        height: 300px;
+    }
+}
+.contenedor-areas .area img {
+    height: 300px;
+    object-fit: cover;
+}
+@media (min-width: 768px) {
+    .contenedor-areas .area img {
+        height: 300px;
+    }
+}
+.contenedor-areas .area::after {
+    content: '';
+    background: linear-gradient(
+        rgba(0, 0,0,0.75),
+        rgba(0, 0,0,0.75)
+    );
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+.area p {
+    position: absolute;
+    margin: auto;
+    color: var(--blanco);
+    font-size: 2rem;
+    font-weight: 900;
+    z-index: 100;
+}
+@media (min-width: 768px) {
+    .area p {
+        opacity: 0;
+        transition: opacity .5s ease-in-out;
+    }
+    .area:hover p {
+        opacity: 1;
+    }
+}
+.clasesA {
+    background-color: var(--grisClaro);
+}
+
 
 /* boton */
 
@@ -742,8 +806,15 @@ body.home  .site-header {
 }
 
 .contenedor-areas .area {
-    flex: 0 0 50%;
+    flex: 0 0 100%;
     height: 250px;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .contenedor-areas .area {
+        flex: 0 0 50%;
+    }
 }
 
 @media (min-width: 768px) {
@@ -756,4 +827,46 @@ body.home  .site-header {
 .contenedor-areas .area img{
     height: 350px;
     object-fit: cover;
+}
+
+.contenedor-areas .area::after {
+    content: '';
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.75),
+        rgba(0, 0, 0, 0.75),
+    );
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+/* testimoniales */
+.testimoniales {
+    background: linear-gradient(
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.75)
+    ), url(img/testimonial-bg.jpg);
+    padding: 12rem 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.texto-blanco {
+    color: var(--blanco);
+}
+
+.contenedor-tesrimoniales {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    color: var(--blanco);
+}
+
+.bx-wrapper {
+    background: transparent;
 }

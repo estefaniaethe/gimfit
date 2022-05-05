@@ -30,5 +30,5 @@ function gymFit_lista_clases($cantidad = -1) { ?>
             <?php endwhile; wp_reset_postdata(); ?>
     </ul>
 <?php
-
 }
+
