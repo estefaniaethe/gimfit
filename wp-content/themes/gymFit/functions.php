@@ -3,7 +3,7 @@
 /** Consultas reutilizables */
 require get_template_directory() . '/inc/queries.php';
 
-/* require get_template_directory() . '/inc/shortcodes.php'; */
+/* require get_template_directory() . '/inc/shortcodes.php';  */
 
 // Cuando el tema es activado
 function gymfitness_setup() {
@@ -52,6 +52,7 @@ function gymFit_scripts_styles() {
     /* una vez que corran las dependencias va a correr nuestra hoja de estilos */
    wp_enqueue_style('style', get_stylesheet_uri(), array('normalize', 'googleFont'), '1.0.0');
 
+   wp_enqueue_style( 'bootstrap_css', get_stylesheet_directory_uri() . '/css/bootstrap.min.css', array(), '5.1.3'); 
 
    if(is_page('galeria')):
     wp_enqueue_style('lightboxCSS', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.0');
@@ -79,7 +80,9 @@ function gymFit_scripts_styles() {
 
     if(is_page('galeria')):
     wp_enqueue_script('lightboxJS', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '1.0.0', true);
-endif;
+    endif;
+
+    wp_enqueue_script( 'bootstrap_js', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array('jquery'), '5.1.3', true); 
     /* url de script JS, le paso dependencia jquery y slicknavJS */
     wp_enqueue_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery', 'slicknavJS'), '2.11.0', true);
 }

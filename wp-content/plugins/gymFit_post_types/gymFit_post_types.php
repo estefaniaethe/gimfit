@@ -177,3 +177,59 @@ function gymfitness_testimoniales() {
 
 }
 add_action( 'init', 'gymfitness_testimoniales', 0 );
+
+
+function gymfitness_construcciones() {
+
+	$labels = array(
+		'name'                  => _x( 'Construcciones', 'Post Type General Name', 'gymfitness' ),
+		'singular_name'         => _x( 'Construccion', 'Post Type Singular Name', 'gymfitness' ),
+		'menu_name'             => __( 'Construcciones', 'gymfitness' ),
+		'name_admin_bar'        => __( 'Construccion', 'gymfitness' ),
+		'archives'              => __( 'Archivo', 'gymfitness' ),
+		'attributes'            => __( 'Atributos', 'gymfitness' ),
+		'parent_item_colon'     => __( 'Construccion Padre', 'gymfitness' ),
+		'all_items'             => __( 'Todas Las Construcciones', 'gymfitness' ),
+		'add_new_item'          => __( 'Agregar Construccion', 'gymfitness' ),
+		'add_new'               => __( 'Agregar Construccion', 'gymfitness' ),
+		'new_item'              => __( 'Nueva Construccion', 'gymfitness' ),
+		'edit_item'             => __( 'Editar Construccion', 'gymfitness' ),
+		'update_item'           => __( 'Actualizar Construccion', 'gymfitness' ),
+		'view_item'             => __( 'Ver Construccion', 'gymfitness' ),
+		'view_items'            => __( 'Ver Construcciones', 'gymfitness' ),
+		'search_items'          => __( 'Buscar Construccion', 'gymfitness' ),
+		'not_found'             => __( 'No Encontrado', 'gymfitness' ),
+		'not_found_in_trash'    => __( 'No Encontrado en Papelera', 'gymfitness' ),
+		'featured_image'        => __( 'Imagen Destacada', 'gymfitness' ),
+		'set_featured_image'    => __( 'Guardar Imagen destacada', 'gymfitness' ),
+		'remove_featured_image' => __( 'Eliminar Imagen destacada', 'gymfitness' ),
+		'use_featured_image'    => __( 'Utilizar como Imagen Destacada', 'gymfitness' ),
+		'insert_into_item'      => __( 'Insertar en Construccion', 'gymfitness' ),
+		'uploaded_to_this_item' => __( 'Agregado en Construccion', 'gymfitness' ),
+		'items_list'            => __( 'Lista de Construcciones', 'gymfitness' ),
+		'items_list_navigation' => __( 'Navegación de Construcciones', 'gymfitness' ),
+		'filter_items_list'     => __( 'Filtrar Construcciones', 'gymfitness' ),
+	);
+	$args = array(
+		'label'                 => __( 'Construcciones', 'gymfitness' ),
+		'description'           => __( 'Construcciones para el Sitio Web', 'gymfitness' ),
+		'labels'                => $labels,
+		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'hierarchical'          => false,
+		'public'                => true,
+		'show_ui'               => true,
+		'show_in_menu'          => true,
+        'menu_position'         => 8,
+        'menu_icon'             => 'dashicons-editor-quote',
+		'show_in_admin_bar'     => true,
+		'show_in_nav_menus'     => true,
+		'can_export'            => true,
+		'has_archive'           => false,
+		'exclude_from_search'   => false,
+		'publicly_queryable'    => true,
+		'capability_type'       => 'page',
+	);
+	register_post_type( 'construcciones', $args );
+
+}
+add_action( 'init', 'gymfitness_construcciones', 0 );
